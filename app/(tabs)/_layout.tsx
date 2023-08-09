@@ -1,53 +1,64 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
-import Colors from '@/constants/Colors';
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { colors } from "@/components/colors";
+import { Icon } from "@/components/Icon";
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+        lazy: true,
+        tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarLabelPosition: "below-icon",
+        tabBarStyle: {
+          paddingBottom: 5,
+          paddingTop: 5,
+          height: 56,
+          borderTopColor: "transparent",
+        },
+        tabBarLabelStyle: { fontSize: 12, fontFamily: "Poppins" },
+        tabBarActiveTintColor: colors._black,
+        tabBarInactiveTintColor: colors._grey,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          // tabBarIconStyle:{marginBottom:12},
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color }) => (
+            <Icon name="home" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="search"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          // tabBarIconStyle:{marginBottom:12},
+          tabBarLabel: "Search",
+          tabBarIcon: ({ color }) => (
+            <Icon name="search" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="vocabulary"
+        options={{
+          // tabBarIconStyle:{marginBottom:12},
+          tabBarLabel: "Vocabulary",
+          tabBarIcon: ({ color }) => (
+            <Icon name="book-open" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          // tabBarIconStyle:{marginBottom:12},
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color }) => (
+            <Icon name="user" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>

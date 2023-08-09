@@ -1,14 +1,25 @@
-import { StyleSheet } from 'react-native';
+import { auth } from "@/api/firebase";
+import { colors } from "@/components/colors";
+import { Icon } from "@/components/Icon";
+import { TextR, statusBarHeight } from "@/components/constants";
+import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Platform,
+  Image,
+} from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import HomeHeader from "@/components/HomeHeader";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
 
-export default function TabOneScreen() {
+export default function Chats() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <HomeHeader />
     </View>
   );
 }
@@ -16,16 +27,5 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });
