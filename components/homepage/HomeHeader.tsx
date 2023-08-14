@@ -1,26 +1,26 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
-import { TextR, statusBarHeight } from "./constants";
-import { colors } from "./colors";
+import { TextR, statusBarHeight } from "../../constants/constants";
+import { colors } from "../../constants/colors";
 import HeaderImg from "@/assets/images/homepage_header.png";
 import { auth, db } from "@/api/firebase";
 
 export default function HomeHeader() {
-  const [user, setUser] = useState<any>(null);
+  // const [user, setUser] = useState<any>(null);
 
-  useEffect(() => {
-    db.collection("users")
-      .doc(auth.currentUser?.uid)
-      .get()
-      .then((res) => {
-        setUser(res.data());
-      });
-  }, []);
+  // useEffect(() => {
+  //   db.collection("users")
+  //     .doc(auth.currentUser?.uid)
+  //     .get()
+  //     .then((res) => {
+  //       setUser(res.data());
+  //     });
+  // }, []);
 
   return (
     <View style={styles.header}>
       <View style={styles.header_wrapper}>
-        <TextR content={`Hi, ${user.name}!`} mixedStyle={styles.title} />
+        <TextR content={'Welcome to '} mixedStyle={styles.title} />
         <TextR content="Work hard for your dreams." mixedStyle={styles.text} />
       </View>
       <View>

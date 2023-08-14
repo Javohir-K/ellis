@@ -1,42 +1,67 @@
 import { auth } from "@/api/firebase";
 import Login from "@/components/Login";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
+import * as Font from "expo-font";
+import { Stack } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { View, Text } from "react-native";
+import { screen_options } from "@/constants/constants";
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from "expo-router";
+export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(tabs)",
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
+  // const [loggedIn, setLoggedIn] = useState(false);
+  const [loaded, error] = Font.useFonts({
     Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
     PoppinsBold: require("../assets/fonts/Poppins-Bold.ttf"),
     ...FontAwesome.font,
   });
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     setLoggedIn(true);
+  //   } else {
+  //     setLoggedIn(false);
+  //   }
+  // });
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  });
+  // useEffect(() => {
+  //   async function prepare() {
+  //     try {
+  //       await SplashScreen.preventAutoHideAsync();
+  //       await Font.loadAsync({
+  //         Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
+  //         PoppinsBold: require("../assets/fonts/Poppins-Bold.ttf"),
+  //         ...FontAwesome.font,
+  //       });
+  //     } catch (e) {
+  //       console.warn(e);
+  //     } finally {
+  //       setAppIsReady(true);
+  //     }
+  //   }
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  //   prepare();
+  // }, []);
+
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (appIsReady) {
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [appIsReady]);
+
+  // if (!appIsReady) {
+  //   return null;
+  // }
+
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -51,17 +76,18 @@ export default function RootLayout() {
     return null;
   }
 
-  if (!loggedIn) {
-    return <Login />;
-  }
+  // if (!loggedIn) {
+  //   return <Login />;
+  // }
 
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
+    <View style={{ flex: 1 }}>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="grammar" options={screen_options} />
+        <Stack.Screen name="practice" options={screen_options} />
+        <Stack.Screen name="quiz" options={screen_options} />
+      </Stack>
+    </View>
   );
 }

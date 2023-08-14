@@ -8,9 +8,9 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/login_image.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1C1C1E"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.javohir0105.ecomm"
     },
     "web": {
       "bundler": "metro",
@@ -35,6 +36,14 @@
     "experiments": {
       "tsconfigPaths": true,
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4df61717-2ebb-43d5-a98e-e3393d775ab6"
+      }
     }
   }
 }

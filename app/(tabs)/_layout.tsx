@@ -1,4 +1,4 @@
-import { colors } from "@/components/colors";
+import { colors } from "@/constants/colors";
 import { Icon } from "@/components/Icon";
 import { Tabs } from "expo-router";
 
@@ -16,7 +16,10 @@ export default function TabLayout() {
           height: 56,
           borderTopColor: "transparent",
         },
-        tabBarLabelStyle: { fontSize: 12, fontFamily: "Poppins" },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          //  fontFamily: "Poppins"
+        },
         tabBarActiveTintColor: colors._black,
         tabBarInactiveTintColor: colors._grey,
       }}
@@ -51,7 +54,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="profile"
         options={{
           // tabBarIconStyle:{marginBottom:12},
@@ -60,7 +63,7 @@ export default function TabLayout() {
             <Icon name="user" size={24} color={color} />
           ),
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

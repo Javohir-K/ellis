@@ -7,5 +7,5 @@ export function Icon(props: {
   color: string;
   size: number;
 }) {
-  return <Feather style={{ marginBottom: -3 }} {...props} />;
+  return <Feather {...props} />;
 }

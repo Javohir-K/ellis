@@ -15,8 +15,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db } from "@/api/firebase";
-import { colors } from "./colors";
-import { TextR } from "./constants";
+import { colors } from "../constants/colors";
+import { TextR } from "../constants/constants";
 import LoginImage from "@/assets/images/login_image.png";
 import { Dimensions } from "react-native";
 
