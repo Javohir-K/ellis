@@ -1,26 +1,43 @@
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  useWindowDimensions,
+} from "react-native";
 import React from "react";
 import { TextR } from "@/constants/constants";
 import { Icon } from "../Icon";
 import { colors } from "@/constants/colors";
-import { router } from "expo-router";
+import { Link } from "expo-router";
 
-export default function LevelCard(props: { title: string; units: string }) {
+export default function LevelCard(props: {
+  title: string;
+  units: string;
+  level: string;
+}) {
   return (
-    <TouchableOpacity onPress={() => router.push("/practice")}>
-      <View style={styles.container}>
-        <View>
-          <TextR content={props.title} mixedStyle={{ fontSize: 16 }} />
-          <TextR
-            content={props.units}
-            mixedStyle={{ fontSize: 12, color: colors._grey }}
-          />
+    <Link
+      href={{
+        pathname: "/grammar_topics/[topic]",
+        params: { topic: props.level },
+      }}
+      asChild
+    >
+      <TouchableOpacity>
+        <View style={styles.container}>
+          <View>
+            <TextR content={props.title} mixedStyle={{ fontSize: 16 }} />
+            <TextR
+              content={props.units}
+              mixedStyle={{ fontSize: 12, color: colors._grey }}
+            />
+          </View>
+          <View>
+            <Icon name="chevron-right" size={24} color={colors._black} />
+          </View>
         </View>
-        <View>
-          <Icon name="chevron-right" size={24} color={colors._black} />
-        </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Link>
   );
 }
 

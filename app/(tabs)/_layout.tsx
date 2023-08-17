@@ -18,7 +18,7 @@ export default function TabLayout() {
         },
         tabBarLabelStyle: {
           fontSize: 12,
-          //  fontFamily: "Poppins"
+          fontFamily: "Kanit",
         },
         tabBarActiveTintColor: colors._black,
         tabBarInactiveTintColor: colors._grey,
@@ -27,7 +27,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          // tabBarIconStyle:{marginBottom:12},
           tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
             <Icon name="home" size={24} color={color} />
@@ -35,35 +34,32 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
+        name="practice"
         options={{
-          // tabBarIconStyle:{marginBottom:12},
-          tabBarLabel: "Search",
+          tabBarLabel: "Exercises",
           tabBarIcon: ({ color }) => (
-            <Icon name="search" size={24} color={color} />
+            <Icon name="zap" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="vocabulary"
         options={{
-          // tabBarIconStyle:{marginBottom:12},
           tabBarLabel: "Vocabulary",
           tabBarIcon: ({ color }) => (
             <Icon name="book-open" size={24} color={color} />
           ),
         }}
       />
-      {/* <Tabs.Screen
-        name="profile"
+      <Tabs.Screen
+        name="about"
         options={{
-          // tabBarIconStyle:{marginBottom:12},
-          tabBarLabel: "Profile",
+          tabBarLabel: "About",
           tabBarIcon: ({ color }) => (
-            <Icon name="user" size={24} color={color} />
+            <Icon name="info" size={24} color={color} />
           ),
         }}
-      /> */}
+      />
     </Tabs>
   );
 }

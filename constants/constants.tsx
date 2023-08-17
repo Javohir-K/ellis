@@ -9,8 +9,7 @@ export const TextR = (props: { content: any; mixedStyle: any }) => {
       style={[
         props.mixedStyle,
         {
-          // fontFamily: "Poppins",
-          marginBottom: -3,
+          fontFamily: "Kanit",
         },
       ]}
     >
@@ -20,7 +19,7 @@ export const TextR = (props: { content: any; mixedStyle: any }) => {
 };
 export const TextB = (props: { content: string; mixedStyle: any }) => {
   return (
-    <Text style={[props.mixedStyle, { marginBottom: -3 }]}>
+    <Text style={[props.mixedStyle, { fontFamily: "KanitBold" }]}>
       {props.content}
     </Text>
   );

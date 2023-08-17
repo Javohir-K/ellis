@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { TextR, statusBarHeight } from "../../constants/constants";
 import { colors } from "../../constants/colors";
 import HeaderImg from "@/assets/images/homepage_header.png";
-import { auth, db } from "@/api/firebase";
 
 export default function HomeHeader() {
   // const [user, setUser] = useState<any>(null);
@@ -20,8 +19,11 @@ export default function HomeHeader() {
   return (
     <View style={styles.header}>
       <View style={styles.header_wrapper}>
-        <TextR content={'Welcome to '} mixedStyle={styles.title} />
-        <TextR content="Work hard for your dreams." mixedStyle={styles.text} />
+        <TextR content={"Welcome to ICEL!"} mixedStyle={styles.title} />
+        <TextR
+          content="Interactive content for english learners!"
+          mixedStyle={styles.text}
+        />
       </View>
       <View>
         <Image source={HeaderImg} style={{ width: 140, height: 140 }} />
@@ -52,5 +54,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: colors._white,
+    maxWidth: 200,
   },
 });
