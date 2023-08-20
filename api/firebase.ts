@@ -4,6 +4,7 @@ import "firebase/compat/firestore";
 
 
 const firebaseConfig = {
+<<<<<<< HEAD
   apiKey: "AIzaSyCH2ERieoEKC64xM_hiBn9rkoyYDcq7JLc",
   authDomain: "ielts-mate.firebaseapp.com",
   projectId: "ielts-mate",
@@ -13,6 +14,9 @@ const firebaseConfig = {
   measurementId: "G-NCD8P89K2K",
 
 
+=======
+  // Firebase project config here...
+>>>>>>> b46a407bc3640513c0d5fdfe136ca2b402b72470
 };
 
 // Initialize Firebase
