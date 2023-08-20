@@ -11,7 +11,7 @@ export default function Vocabulary() {
   const new_data: Array<string> = [];
   // console.log(data[0,20]);
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 40; i++) {
     new_data.push(data[i]);
   }
 
