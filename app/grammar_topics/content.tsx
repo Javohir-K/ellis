@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import SkeletonUI from "@/components/SkeletonUI";
 
 export default function Content() {
-  const { topic_id } = useGlobalSearchParams();
+  const { topic_id, topic_title } = useGlobalSearchParams();
   const [data, setData] = useState<any>([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Content() {
   return (
     <>
       <Stack.Screen options={screen_options} />
-      <Header title={data.title ? data.title : "Loading..."} />
+      <Header title={topic_title.toString()} />
       <ScrollView>
         {data.content ? (
           <ContentWebView webdata={data.content} />

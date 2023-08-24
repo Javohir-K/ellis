@@ -12,6 +12,7 @@ export default function UnitCard(props: { title: string; topic_id: string }) {
         pathname: "/grammar_topics/content",
         params: {
           topic_id: props.topic_id,
+          topic_title: props.title,
         },
       }}
       asChild
